@@ -1,8 +1,8 @@
 {
-  "title": "Docker 101",
+  "title": "Play with Docker",
   "description": "",
   "difficulty": "Beginner",
-  "time": "10",
+  "time": "10 minutes",
   "details": {
     "steps": [
       {
@@ -26,9 +26,9 @@
     }
   },
   "environment": {
-    "uilayout": "editor-terminal"
+    "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "dotnet-docker"
+    "imageid": "ubuntu:2004"
   }
 }
