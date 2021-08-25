@@ -1,8 +1,8 @@
 {
-  "title": "Containers 101",
+  "title": "Docker 101 - Dev",
   "description": "",
   "difficulty": "Beginner",
-  "time": "15 minutes",
+  "time": "10 minutes",
   "details": {
     "steps": [
       {
@@ -16,10 +16,6 @@
       {
         "title": "Step 3",
         "text": "step3.md"
-      },
-      {
-        "title": "Step 4",
-        "text": "step4.md"
       }
     ],
     "intro": {
@@ -30,9 +26,10 @@
     }
   },
   "environment": {
-    "uilayout": "terminal"
+    "uilayout": "terminal-iframe"
   },
   "backend": {
-    "imageid": "centos"
+    "imageid": "ubuntu:2004",
+    "port": "8080"
   }
 }
