@@ -1,5 +1,3 @@
-## Creando imágenes
-
 ### Qué es una imagen?
 
 Un "container image" o simplemente Image, es un paquete ejecutable que contiene lo necesario para correr una aplicación, típicamente, el código, el runtime con sus librerías y configuraciones específicas. Una imagen es usada para instanciar un container a partir de ella y gracias a su estructura, es posible modificar sin necesidad de re-empaquetar todo el contenido, dado a que una imagen esta compuesta por varias layers y cada una de estas capas representa un repositorio, donde solo necesitamos modificar el contenido específico de esa layer sin alterar el resto.  
@@ -62,3 +60,6 @@ Vayamos por partes:
  * RUN: Ejecuta uno o varios comandos dentro del contenedor en el momento del build. En este caso: `RUN npm install`
  * EXPOSE: Informa en qué puerto el proceso que se levanta está escuchando, es a modo de documentación. En este caso: `EXPOSE 8080`
  * ENTRYPOINT: Define una serie de comandos que solo se ejecutarán una vez que el contenedor se ha inicializado, pueden ser comandos Shell con parámetros establecidos. En este caso: `ENTRYPOINT ["node", "index.js"]`
+
+Podemos comprobar la imagen creada usando el comando `docker images`  
+`docker images`{{execute}}
