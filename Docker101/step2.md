@@ -1,0 +1,39 @@
+## Creando imágenes
+
+### Qué es una imagen?
+
+Un "container image" o simplemente Image, es un paquete ejecutable que contiene lo necesario para correr una aplicación, típicamente, el código, el runtime con sus librerías y configuraciones específicas. Una imagen es usada para instanciar un container a partir de ella y gracias a su estructura, es posible modificar sin necesidad de re-empaquetar todo el contenido, dado a que una imagen esta compuesta por varias layers y cada una de estas capas representa un repositorio, donde solo necesitamos modificar el contenido específico de esa layer sin alterar el resto.  
+
+![docker image](./assets/docker-image.png)
+
+Cuando ejecutamos el comando `docker run hello-world` del paso previo, invocamos al cliente de Docker y le dimos la instrucción de instanciar un container a partir de la imagen `hello-world` la cual, al no existir localmente, la fue a buscar a un Registro de Imágenes o Registry. (tal como se mostraba en el imagen de arquitectura)  
+
+![Docker Architecture](./assets/docker-architecture.png)
+
+
+
+### Crear una imagen
+
+Existen varias formas de armar imágenes propias, incluso algunas ya vienen embebidas con el setup de Docker. Por ejemplo:  
+* Dockerfile (buildkit)
+* Compose  
+
+Vamos a crear una imagen a partir de un archivo de manifiesto llamado Dockerfile. El proceso se explica con detalle en el workflow siguiente:  
+
+![docker build](./assets/docker-workflow.png)
+
+Para esto, les facilitamos una aplicación escrita en node.js:  
+
+`git clone https://github.com/mauricioamendola/app-netlabs-ocp.git`{{execute}}
+
+`cd app-netlabs-ocp`{{execute}}  
+
+```cat <<EOF > Dockerfile
+FROM node:15.12.0-slim
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+RUN npm install
+EXPOSE 8080
+ENTRYPOINT ["node", "index.js"]
+EOF
+```{{execute}}
