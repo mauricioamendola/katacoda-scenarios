@@ -28,6 +28,17 @@ Para esto, les facilitamos una aplicación escrita en node.js:
 
 `cd app-netlabs-ocp`{{execute}}  
 
+Crear un archivo de nombre Dockerfile con el siguiente contenido:  
+```yaml
+FROM node:15.12.0-slim
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+RUN npm install
+EXPOSE 8080
+ENTRYPOINT ["node", "index.js"]
+```
+Para crearlo automaticamente pueden ejecutar el comando de abajo:  
+
 ```cat <<EOF > Dockerfile
 FROM node:15.12.0-slim
 COPY . /usr/src/app
@@ -37,3 +48,17 @@ EXPOSE 8080
 ENTRYPOINT ["node", "index.js"]
 EOF
 ```{{execute}}
+
+Construir la imagen usando `docker build`:    
+
+`docker build -t nodejs-app:v1 .`{{execute}}  
+
+Vayamos por partes:  
+
+
+ * FROM: Indica la imagen base sobre la que se construirá la aplicación dentro del contenedor. En este caso: `FROM node:15.12.0-slim`
+ * COPY: Copia archivos a un destino específico dentro del contenedor, normalmente se utiliza el . para especificar que copie todo lo que está en el directorio del Dockerfile. En este caso: `COPY . /usr/src/app`
+ * WORKDIR: Indica el path dentro del contenedor donde se va a trabajar. En este caso: `WORKDIR /usr/src/app`
+ * RUN: Ejecuta uno o varios comandos dentro del contenedor en el momento del build. En este caso: `RUN npm install`
+ * EXPOSE: Informa en qué puerto el proceso que se levanta está escuchando, es a modo de documentación. En este caso: `EXPOSE 8080`
+ * ENTRYPOINT: Define una serie de comandos que solo se ejecutarán una vez que el contenedor se ha inicializado, pueden ser comandos Shell con parámetros establecidos. En este caso: `ENTRYPOINT ["node", "index.js"]`
