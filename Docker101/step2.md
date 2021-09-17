@@ -16,7 +16,7 @@ Podemos comprobar la ejecución del container con el comando `docker ps`
 `docker ps`{{execute}}
 
 Comprobar el servicio localmente:  
-`curl -v http://localhost`{{execute}}  
+`curl -v http://localhost:8080`{{execute}}  
 
 En el panel de "Dashboard" se puede consultar la web de la aplicación.  
 ![dashboard](./assets/dashboard.png)
