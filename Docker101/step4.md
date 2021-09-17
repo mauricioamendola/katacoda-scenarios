@@ -15,17 +15,13 @@ Hay que crear una Docker Network
 
 Instanciar el backend Redis. Para esto hay que crear un container de nombre "redis" porque la aplicación tiene grabado que el hostname se llama asi.  
 
-`docker run -d --name redis redis:alpine`{{execute}}  
+`docker run -d --name redis --network red-interna redis:alpine`{{execute}}  
 
 ### Construír la imagen aplicación
 
 `mkdir contador && cd contador`{{execute}}  
 
-Como es una aplicación sencilla vamos a crear un archivo contador.py
-
-`touch contador.py`{{execute}}  
-
-Copiar el código en Python dentro del archivo.  
+Crear un archivo contador.py con el siguiente código  
 
 ```cat <<EOF > contador.py
 import time
