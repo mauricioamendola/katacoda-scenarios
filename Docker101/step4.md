@@ -49,15 +49,7 @@ def get_hit_count():
 def hello():
     count = get_hit_count()
     return 'Hola Mundooooooo! I have been seen {} times.\n'.format(count)
-``` 
-
-Crear un archivo de dependencias que será pasado al momento de construir la imagen. 
-
-```cat <<EOF > requirements.txt
-flask
-redis
-EOF
-```{{execute}}  
+```  
 
 Crear el Dockerfile
 
@@ -68,8 +60,7 @@ ENV FLASK_APP=contador.py
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV REDIS_HOST=redis
 RUN apk add --no-cache gcc musl-dev linux-headers
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install flask redis
 EXPOSE 5000
 COPY . .
 CMD ["flask", "run"]
