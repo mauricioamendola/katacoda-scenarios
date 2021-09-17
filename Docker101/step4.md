@@ -23,7 +23,9 @@ Instanciar el backend Redis. Para esto hay que crear un container de nombre "red
 
 Crear un archivo contador.py con el siguiente código  
 
-```cat <<EOF > contador.py  
+`touch contador.py`{{execute}}  
+
+```python  
 import time
 import os
 
@@ -47,8 +49,7 @@ def get_hit_count():
 def hello():
     count = get_hit_count()
     return 'Hola Mundooooooo! I have been seen {} times.\n'.format(count)
-EOF
-```{{execute}}  
+``` 
 
 Crear un archivo de dependencias que será pasado al momento de construir la imagen. 
 
