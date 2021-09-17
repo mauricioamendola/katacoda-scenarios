@@ -23,7 +23,7 @@ Instanciar el backend Redis. Para esto hay que crear un container de nombre "red
 
 Crear un archivo contador.py con el siguiente código  
 
-```cat <<EOF > contador.py
+```cat <<EOF > contador.py  
 import time
 import os
 
