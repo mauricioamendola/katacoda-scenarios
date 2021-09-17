@@ -10,16 +10,20 @@
         "text": "step1.md"
       },
       {
-        "title": "Creando una imagen",
+        "title": "Creando un container",
         "text": "step2.md"
       },
       {
-        "title": "Creando un container",
+        "title": "Creando una imagen",
         "text": "step3.md"
       },
       {
-        "title": "Clean up",
+        "title": "Conectando containers",
         "text": "step4.md"
+      },
+      {
+        "title": "Aplicaciones en HA",
+        "text": "step5.md"
       }
     ],
     "intro": {

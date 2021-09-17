@@ -1,10 +1,17 @@
-### Conectando Containers
+### App + db
 
 En el paso anterior realizamos el proceso de crear una imagen para instanciar un solo container, pero no todos los escenarios son así, de hecho, lo común es que tengamos muchos componentes, desarrollados en lenguajes distintos y conectados para resolver distintos problemas, por ejemplo, una aplicación que necesita persistir datos, es posible que necesite un backend de base de datos. 
 
 Lo que haremos ahora será instanciar dos aplicaciones y relacionarlas, para esto, debemos de entender como funciona el networking en Docker.  
 
-TODO: explicar como funciona el networking en Docker.  
+Con cada instalación de Docker se agregan drivers / plugin de red para proveer distintas funcionalidades. Por omisión tenemos los siguientes drivers:  
+* Bridge: Driver por omisión, establece un adaptador de bridge entre el adaptador del container y el adaptador del host.
+* Host: Elimina el aislamiento entre el container y el host y utiliza directamente el adaptador del host.
+* Overlay: Se usa para conectar dos o mas containers que están en distintos Docker host.
+* Macvlan: Se usa para asignarle una dirección física (MAC Address) al container.
+* none: Deshabilita el networking para un container.
+
+![docker-network](./assets/docker-network.png)
 
 La aplicación que usaremos es un contador escrito en python y que graba el incremento en un backend Redis. 
 ### Prerequisitos
@@ -73,5 +80,12 @@ Buildear la imagen
 
 Finalmente, corremos la aplicación.
 
-`docker run -dp 8080:5000 --network red-interna contador:v1`{{execute}}  
+`docker run -dp 8080:5000 --network red-interna --name contador-v1 contador:v1`{{execute}}  
 
+En el panel de "Dashboard" se puede consultar la web de la aplicación.  
+![dashboard](./assets/dashboard.png)
+
+### Clean up
+
+`docker stop redis && docker rm redis`{{execute}}
+`docker stop contador-v1 && docker rm contador-v1`{{execute}}
