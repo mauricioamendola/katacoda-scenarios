@@ -24,7 +24,7 @@ Vamos a eliminar el POD y a crearlo de nuevo por otro mecanismo.
 
 Ahora vamos crear el mismo POD pero esta vez armando un archivo en formato YAML el cuál servirá de manifiesto para crear el objeto POD.   
 
-``` cat <<EOF > webapp.yaml
+```cat <<endof > webapp.yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -36,8 +36,7 @@ spec:
   - image: httpd:2.4
     name: webapp
     resources: {}
-EOF
-```{{execute}}
+endof```{{execute}}
 
 Verificar el archivo creado con `cat webapp.yaml`{{execute}}  
 
