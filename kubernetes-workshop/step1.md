@@ -20,11 +20,12 @@ Luego de que el pod está running, podemos ver un describe del PODs.
 
 Vamos a eliminar el POD y a crearlo de nuevo por otro mecanismo.  
 
-`kubectl delete pod webapp`{{execute}}  
+`webapp=$(kubectl get pods |grep -v NAME | awk '{ print $1 }') kubectl delete pod $webapp`{{execute}}  
 
 Ahora vamos crear el mismo POD pero esta vez armando un archivo en formato YAML el cuál servirá de manifiesto para crear el objeto POD.   
 
-```cat <<endof > webapp.yaml
+```
+cat <<endof > webapp.yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -36,7 +37,8 @@ spec:
   - image: httpd:2.4
     name: webapp
     resources: {}
-endof```{{execute}}
+endof
+```{{execute}}
 
 Verificar el archivo creado con `cat webapp.yaml`{{execute}}  
 
