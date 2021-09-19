@@ -8,8 +8,6 @@ Cuando ejecutamos el comando `docker run hello-world` del paso previo, invocamos
 
 ![Docker Architecture](./assets/docker-architecture.png)
 
-
-
 ### Crear una imagen
 
 Existen varias formas de armar imágenes propias, incluso algunas ya vienen embebidas con el setup de Docker. Por ejemplo:  
@@ -62,4 +60,15 @@ Vayamos por partes:
  * ENTRYPOINT: Define una serie de comandos que solo se ejecutarán una vez que el contenedor se ha inicializado, pueden ser comandos Shell con parámetros establecidos. En este caso: `ENTRYPOINT ["node", "index.js"]`
 
 Podemos comprobar la imagen creada usando el comando `docker images`  
-`docker images`{{execute}}
+`docker images`{{execute}}  
+
+Probar la imagen construída  
+
+`docker run -d -p 8080:80 --name webapp nodejs-app:v1`{{execute}}  
+
+En el panel de "Dashboard" se puede consultar la web de la aplicación.  
+![dashboard](./assets/dashboard.png)  
+
+### Clean up
+
+`docker stop webapp && docker rm webapp`{{execute}}

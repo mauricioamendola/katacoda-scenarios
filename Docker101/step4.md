@@ -87,5 +87,6 @@ En el panel de "Dashboard" se puede consultar la web de la aplicación.
 
 ### Clean up
 
-`docker stop redis && docker rm redis`{{execute}}
+`docker stop redis && docker rm redis`{{execute}}  
+
 `docker stop contador-v1 && docker rm contador-v1`{{execute}}

@@ -2,7 +2,7 @@ Como habíamos comentado, un container es una instancia en tiempo de ejecución 
 
 Instanciar el container con `docker run`  usando la imagen oficial de Apache `httpd:2.4`:  
 
-`docker run -d -p 8080:80 httpd:2.4`{{execute}}
+`docker run -d -p 8080:80 --name webapp httpd:2.4`{{execute}}
 
 Vamos por parte:
 
@@ -19,4 +19,8 @@ Comprobar el servicio localmente:
 `curl -v http://localhost:8080`{{execute}}  
 
 En el panel de "Dashboard" se puede consultar la web de la aplicación.  
-![dashboard](./assets/dashboard.png)
+![dashboard](./assets/dashboard.png)  
+
+### Clean up
+
+`docker stop webapp && docker rm webapp`{{execute}}
