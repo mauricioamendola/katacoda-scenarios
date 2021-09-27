@@ -6,15 +6,15 @@
   "details": {
     "steps": [
       {
-        "title": "Creando PODs",
+        "title": "Trabajando con PODs",
         "text": "step1.md"
       },
       {
-        "title": "Step 2",
+        "title": "Trabajando con Deployments",
         "text": "step2.md"
       },
       {
-        "title": "Step 3",
+        "title": "Publicando Aplicaciones",
         "text": "step3.md"
       },
       {

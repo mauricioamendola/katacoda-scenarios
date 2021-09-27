@@ -17,7 +17,8 @@ Si algunas de estas señales se transforman en necesidades, debemos de evaluar l
 
 ### Kubernetes (a.k.a k8s)
 
-TO-DO: Explicar que es Kubernetes  
+Kubernetes es una plataforma de para automatizar el despliegue, escalamiento y gestión de aplicaciones en Containers Es open-source y fué diseñada originalmente por Google y ahora mantenida por la Cloud Native Computing Foundation.  
+
 
 
 #### Principios de Diseño
