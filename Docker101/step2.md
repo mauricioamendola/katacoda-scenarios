@@ -9,7 +9,7 @@ Vamos por parte:
 * docker run es el comando para correr un comando
 * Con -d le indicamos que queremos que corra en `detached mode`
 * Con -p le indicamos con qué puerto queremos publicar el servicio que corre dentro del container. Es un mapeo que hacemos en el host con el formato hostPort:containerPort
-* nodejs-app:v1 es la imagen:tag que usamos como base para el container
+* httpd:2.4 es la imagen:tag que usamos como base para el container
 
 Podemos comprobar la ejecución del container con el comando `docker ps`  
 

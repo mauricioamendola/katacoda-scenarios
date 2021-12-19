@@ -64,7 +64,7 @@ Podemos comprobar la imagen creada usando el comando `docker images`
 
 Probar la imagen construída  
 
-`docker run -d -p 8080:80 --name webapp nodejs-app:v1`{{execute}}  
+`docker run -d -p 8080:8080 --name webapp nodejs-app:v1`{{execute}}  
 
 En el panel de "Dashboard" se puede consultar la web de la aplicación.  
 ![dashboard](./assets/dashboard.png)  
